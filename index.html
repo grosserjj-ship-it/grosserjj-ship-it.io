@@ -661,6 +661,219 @@ footer {
   .page { display: block !important; }
   .container { padding: 0; }
 }
+
+
+
+/* ── DIG DEEPER ── */
+.dig-deeper-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 13px 24px;
+  background: var(--cream);
+  border: none;
+  border-top: 1px solid var(--faint);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.dig-deeper-btn:hover { background: #E8E0CE; }
+.dig-deeper-btn .arrow {
+  display: inline-block;
+  transition: transform .3s ease;
+  font-style: normal;
+}
+.dig-deeper-btn.open .arrow { transform: rotate(180deg); }
+
+.dig-deeper-content {
+  display: none;
+  border-top: 1px solid var(--faint);
+  background: #FDFAF4;
+}
+.dig-deeper-content.open { display: block; animation: fadeUp .25s ease; }
+
+.dd-nav {
+  display: flex;
+  border-bottom: 1px solid var(--faint);
+  overflow-x: auto;
+}
+.dd-tab {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .2s, border-color .2s;
+}
+.dd-tab:hover { color: var(--ink); }
+.dd-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.dd-panel { display: none; padding: 24px; }
+.dd-panel.active { display: block; animation: fadeUp .2s ease; }
+
+.dd-section-head {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  margin-top: 20px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--faint);
+}
+.dd-section-head:first-child { margin-top: 0; }
+
+.dd-body {
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.dd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--faint);
+  border: 1px solid var(--faint);
+  margin-bottom: 20px;
+}
+@media(max-width:520px){ .dd-grid { grid-template-columns: repeat(2,1fr); } }
+.dd-cell {
+  background: #FDFAF4;
+  padding: 13px 16px;
+}
+.dd-cell-label {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.dd-cell-value {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.dd-cell-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.dd-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+.dd-table th {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  background: var(--cream);
+}
+.dd-table td {
+  font-family: var(--serif);
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--faint);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.dd-table tr:last-child td { border-bottom: none; }
+
+.bull-point {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+.bull-point::before {
+  content: '▲';
+  font-size: 8px;
+  color: var(--accent);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.bear-point::before { content: '▼'; color: var(--red); }
+
+.bull-point p, .bear-point p {
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.catalyst-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.catalyst-date {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 3px;
+  min-width: 90px;
+}
+.catalyst-text {
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.catalyst-text strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.mgmt-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--faint);
+}
+.mgmt-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.mgmt-initial {
+  width: 36px; height: 36px;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.mgmt-name { font-family: var(--serif); font-size: 13px; font-weight: 700; }
+.mgmt-title { font-family: var(--mono); font-size: 9px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; margin-bottom: 3px; }
+.mgmt-note { font-family: var(--serif); font-size: 12px; color: var(--muted); line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -785,6 +998,101 @@ footer {
         <div class="metric-cell"><div class="metric-label">Revenue Growth</div><div class="metric-value">+20% YoY</div></div>
         <div class="metric-cell"><div class="metric-label">Net Debt</div><div class="metric-value">Net Cash</div></div>
       </div>
+
+      <!-- DIG DEEPER: CSW -->
+      <button class="dig-deeper-btn" onclick="toggleDig('csw-deep', this)">
+        <span class="arrow">▼</span> Dig Deeper — Full Analysis
+      </button>
+      <div class="dig-deeper-content" id="csw-deep">
+        <div class="dd-nav">
+          <button class="dd-tab active" onclick="showDDTab('csw','overview',this)">Business Overview</button>
+          <button class="dd-tab" onclick="showDDTab('csw','financials',this)">Financials</button>
+          <button class="dd-tab" onclick="showDDTab('csw','bullbear',this)">Bull vs. Bear</button>
+          <button class="dd-tab" onclick="showDDTab('csw','catalysts',this)">Catalysts &amp; Mgmt</button>
+        </div>
+
+        <div class="dd-panel active" id="csw-overview">
+          <div class="dd-section-head">What CSW Industrials Actually Does</div>
+          <p class="dd-body">CSW Industrials is a diversified industrial manufacturer operating across two segments: HVAC/R products and general industrial specialty products. The HVAC/R segment (~60% of revenue) makes building products for commercial and residential contractors — coil cleaners, duct sealants, refrigerant management tools, and the market-leading RectorSeal brand. The industrial segment makes lubricants, thread compounds, and other specialty maintenance products sold under the Jet-Lube, Whitmore, and Deacon brands.</p>
+          <p class="dd-body">The company went public in 2015 as a spinout from Capital Southwest. Since then it has been a serial acquirer of niche industrial brands with strong market positions — typically paying 8–12x EBITDA for businesses that, post-integration, contribute 25%+ EBITDA margins. The Aspen Manufacturing acquisition (closed FY2025) is their largest to date and brought residential HVAC components, meaningfully expanding the addressable market.</p>
+          <div class="dd-section-head">Why The Market Is Wrong Right Now</div>
+          <p class="dd-body">The stock has de-rated from $437 (ATH, Nov 2024) to ~$270 on two concerns: (1) Aspen integration diluting near-term margins, and (2) general industrial slowdown fears. Both are real but temporary. Aspen integration dilution is a 2–3 quarter issue, not structural. The business it's integrating into has compounded EBITDA at 33% annually for five years. The market is treating a proven compounder as permanently impaired. The $250M buyback at current prices is management's loudest possible signal of disagreement.</p>
+          <div class="dd-section-head">Comparable Companies</div>
+          <div class="dd-grid">
+            <div class="dd-cell"><div class="dd-cell-label">Peer</div><div class="dd-cell-value">AAON Inc</div><div class="dd-cell-sub">HVAC equipment · 28x EV/EBITDA</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Peer</div><div class="dd-cell-value">Watts Water</div><div class="dd-cell-sub">Flow control · 22x EV/EBITDA</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Peer</div><div class="dd-cell-value">Roper Technologies</div><div class="dd-cell-sub">Industrial diversified · 27x EV/EBITDA</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">CSW Today</div><div class="dd-cell-value" style="color:var(--accent)">~20x EV/EBITDA</div><div class="dd-cell-sub">30–40% discount to peers</div></div>
+          </div>
+        </div>
+
+        <div class="dd-panel" id="csw-financials">
+          <div class="dd-section-head">Income Statement Snapshot (FY2025, ending March)</div>
+          <div class="dd-grid">
+            <div class="dd-cell"><div class="dd-cell-label">Revenue</div><div class="dd-cell-value">~$950M</div><div class="dd-cell-sub">+20% YoY (incl. Aspen)</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Gross Margin</div><div class="dd-cell-value">~43%</div><div class="dd-cell-sub">Slight dilution from Aspen</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">EBITDA</div><div class="dd-cell-value">~$247M</div><div class="dd-cell-sub">26% margin</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">FCF</div><div class="dd-cell-value">~$180M</div><div class="dd-cell-sub">Strong conversion ~73%</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">EPS (Fwd)</div><div class="dd-cell-value">~$9.50</div><div class="dd-cell-sub">~28x P/E at $270</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Net Debt</div><div class="dd-cell-value">Net Cash</div><div class="dd-cell-sub">Post-buyback capacity</div></div>
+          </div>
+          <div class="dd-section-head">Historical EBITDA Margin Trend</div>
+          <table class="dd-table">
+            <thead><tr><th>Fiscal Year</th><th>Revenue</th><th>EBITDA</th><th>EBITDA Margin</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr><td>FY2021</td><td>$464M</td><td>$101M</td><td>21.8%</td><td>Pre-acquisition baseline</td></tr>
+              <tr><td>FY2022</td><td>$615M</td><td>$148M</td><td>24.1%</td><td>Margin expansion phase</td></tr>
+              <tr><td>FY2023</td><td>$722M</td><td>$186M</td><td>25.8%</td><td>Organic + acquisition growth</td></tr>
+              <tr><td>FY2024</td><td>$792M</td><td>$213M</td><td>26.9%</td><td>Peak pre-Aspen margin</td></tr>
+              <tr><td>FY2025E</td><td>$950M</td><td>$247M</td><td>26.0%</td><td>Aspen integration dilution</td></tr>
+              <tr><td>FY2027E</td><td>$1.1B</td><td>$308M</td><td>28.0%</td><td style="color:var(--accent)">Synergies captured — target</td></tr>
+            </tbody>
+          </table>
+          <div class="dd-section-head">Balance Sheet Highlights</div>
+          <p class="dd-body">Net cash position post-Aspen deal financing. $250M buyback authorization active — at $270/share that's roughly 9% of market cap. Management has historically been excellent capital allocators; every acquisition has exceeded initial return projections. The buyback at these levels is unusually aggressive for CSW.</p>
+        </div>
+
+        <div class="dd-panel" id="csw-bullbear">
+          <div class="dd-section-head">Bull Case — Why This Works</div>
+          <div class="bull-point"><p>Aspen integration resolves on schedule (2–3 quarters). Margins recover to 27–28% by FY2027. Stock re-rates to 25x EV/EBITDA — fair for a 33% CAGR compounder — implying $330–380 per share.</p></div>
+          <div class="bull-point"><p>HVAC/R secular tailwind: data center cooling, residential HVAC replacement cycle, and commercial retrofits for energy efficiency all drive multi-year volume growth independent of the macro.</p></div>
+          <div class="bull-point"><p>$250M buyback reduces share count ~9% at current prices. Combined with earnings growth, EPS accretion is significant and accelerates the re-rating.</p></div>
+          <div class="bull-point"><p>Another acquisition: CSW's track record of acquiring niche industrial brands at 8–12x and expanding margins means any tuck-in at current valuations creates immediate value. Net cash position gives full optionality.</p></div>
+          <div class="dd-section-head" style="margin-top:24px">Bear Case — Why This Fails</div>
+          <div class="bull-point bear-point"><p>Aspen integration is messier than expected. If margin recovery takes 6+ quarters instead of 2–3, the stock likely re-tests $240–250 before recovering. Patience required.</p></div>
+          <div class="bull-point bear-point"><p>Macro deterioration: CSW's industrial segment correlates with MRO spending. A meaningful industrial slowdown (ISM Manufacturing below 48 for 6+ months) would compress revenue growth and delay margin recovery.</p></div>
+          <div class="bull-point bear-point"><p>M&amp;A execution risk. Aspen is their largest acquisition by far. Any operational misstep — supply chain, talent retention, customer loss — would damage the premium multiple the business commands.</p></div>
+        </div>
+
+        <div class="dd-panel" id="csw-catalysts">
+          <div class="dd-section-head">Upcoming Catalysts</div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">May 2026</div>
+            <div class="catalyst-text"><strong>Q4 FY2026 Earnings</strong>First full fiscal year with Aspen fully consolidated. Management will provide FY2027 guidance — this is the first look at whether integration is on track. A beat + raised guidance is the primary re-rating catalyst.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Ongoing</div>
+            <div class="catalyst-text"><strong>Buyback Progress</strong>Monthly buyback disclosures. Pace of repurchases signals management conviction. If they accelerate buybacks below $260, that's a strong signal.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Q2–Q3 2026</div>
+            <div class="catalyst-text"><strong>HVAC Season Data</strong>Residential HVAC replacement season (spring/summer). Strong AHRI shipment data would confirm the revenue growth thesis independent of Aspen.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Any Quarter</div>
+            <div class="catalyst-text"><strong>Tuck-In Acquisition</strong>CSW's cadence has been roughly one acquisition per year. Given the net cash position, a deal announcement at typical 8–12x EBITDA multiples would be instantly accretive and likely close the valuation gap.</div>
+          </div>
+          <div class="dd-section-head">Management Team</div>
+          <div class="mgmt-row">
+            <div class="mgmt-initial">JH</div>
+            <div><div class="mgmt-title">President &amp; CEO</div><div class="mgmt-name">Joseph Armes</div><div class="mgmt-note">Has led CSW since the 2015 spinout. Architect of the acquisition strategy. Significant personal ownership — meaningfully aligned with shareholders. Has executed every stated capital allocation priority on time.</div></div>
+          </div>
+          <div class="mgmt-row">
+            <div class="mgmt-initial">LD</div>
+            <div><div class="mgmt-title">CFO</div><div class="mgmt-name">Linn Evans (interim)</div><div class="mgmt-note">Managing the Aspen integration financial integration. Prior CFO Tammy McConnaughey departed post-acquisition — worth monitoring for a permanent CFO appointment as a signal of stability.</div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -851,6 +1159,99 @@ footer {
         <div class="metric-cell"><div class="metric-label">Revenue Growth</div><div class="metric-value">+8–12%</div></div>
         <div class="metric-cell"><div class="metric-label">Dividend Yield</div><div class="metric-value">~7%</div></div>
       </div>
+
+      <!-- DIG DEEPER: KRT -->
+      <button class="dig-deeper-btn" onclick="toggleDig('krt-deep', this)">
+        <span class="arrow">▼</span> Dig Deeper — Full Analysis
+      </button>
+      <div class="dig-deeper-content" id="krt-deep">
+        <div class="dd-nav">
+          <button class="dd-tab active" onclick="showDDTab('krt','overview',this)">Business Overview</button>
+          <button class="dd-tab" onclick="showDDTab('krt','financials',this)">Financials</button>
+          <button class="dd-tab" onclick="showDDTab('krt','bullbear',this)">Bull vs. Bear</button>
+          <button class="dd-tab" onclick="showDDTab('krt','catalysts',this)">Catalysts &amp; Mgmt</button>
+        </div>
+
+        <div class="dd-panel active" id="krt-overview">
+          <div class="dd-section-head">What Karat Packaging Actually Does</div>
+          <p class="dd-body">Karat Packaging manufactures and distributes single-use foodservice packaging — cups, lids, containers, cutlery, straws, bags, and specialty items — for restaurants, food delivery operators, grocery chains, and institutional foodservice. Founded in 2000 by the Lollicup USA parent, it went public in 2021. Headquarters: Chino, California, with manufacturing facilities in the U.S. and sourcing partnerships in Asia.</p>
+          <p class="dd-body">The key differentiation: unlike most packaging distributors that purely source from Asia, Karat operates domestic manufacturing capacity. This means shorter lead times, better quality control, and critically — a structural tariff advantage that has become dramatically more relevant in 2025–2026 as import costs on competing Asian-sourced packaging have risen significantly. The Karat Earth product line (compostable, biodegradable, and recyclable SKUs) is the fastest-growing segment and positions the company ahead of single-use plastics regulations taking effect in multiple states.</p>
+          <div class="dd-section-head">Why It's Underfollowed</div>
+          <p class="dd-body">With only 2–3 sell-side analysts covering KRT, institutional awareness is extremely low for a profitable, dividend-paying company with a genuine competitive moat. Market cap of ~$490M puts it below most institutional minimums. The 7%+ dividend yield means income-oriented retail investors are the primary holders — not growth funds that would re-rate it on earnings momentum. This is the opportunity: a business that is compounding at 8–12% annually, protected by domestic manufacturing, paying a 7% dividend, and trading at 9.5x EV/EBITDA — roughly half the multiple of comparable packaging businesses.</p>
+          <div class="dd-section-head">Peer Valuation Comparison</div>
+          <div class="dd-grid">
+            <div class="dd-cell"><div class="dd-cell-label">Berry Global (BERY)</div><div class="dd-cell-value">11.5x EV/EBITDA</div><div class="dd-cell-sub">Packaging comps</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Pactiv Evergreen (PTVE)</div><div class="dd-cell-value">10.8x EV/EBITDA</div><div class="dd-cell-sub">Foodservice packaging</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Sealed Air (SEE)</div><div class="dd-cell-value">12.2x EV/EBITDA</div><div class="dd-cell-sub">Specialty packaging</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">KRT Today</div><div class="dd-cell-value" style="color:var(--accent)">9.5x EV/EBITDA</div><div class="dd-cell-sub">15–30% discount — no justification</div></div>
+          </div>
+        </div>
+
+        <div class="dd-panel" id="krt-financials">
+          <div class="dd-section-head">Income Statement Snapshot (FY2025)</div>
+          <div class="dd-grid">
+            <div class="dd-cell"><div class="dd-cell-label">Revenue</div><div class="dd-cell-value">~$540M</div><div class="dd-cell-sub">+9% YoY est.</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Gross Margin</div><div class="dd-cell-value">~34%</div><div class="dd-cell-sub">Domestic mfg advantage</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">EBITDA</div><div class="dd-cell-value">~$80M</div><div class="dd-cell-sub">~15% margin</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">FCF Yield</div><div class="dd-cell-value">~9%</div><div class="dd-cell-sub">Strong vs. price</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Dividend / Share</div><div class="dd-cell-value">$1.70</div><div class="dd-cell-sub">~7.1% yield at $24</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Net Debt</div><div class="dd-cell-value">~$120M</div><div class="dd-cell-sub">Manageable ~1.5x leverage</div></div>
+          </div>
+          <div class="dd-section-head">Revenue Bridge — Why 8–12% Growth Is Sustainable</div>
+          <table class="dd-table">
+            <thead><tr><th>Growth Driver</th><th>Contribution</th><th>Durability</th></tr></thead>
+            <tbody>
+              <tr><td>Restaurant &amp; foodservice volume growth</td><td>+3–4%</td><td>Structural — food delivery secular growth</td></tr>
+              <tr><td>Karat Earth (eco) product mix shift</td><td>+2–3%</td><td>High — regulatory tailwind accelerating</td></tr>
+              <tr><td>Tariff repricing / domestic sourcing shift</td><td>+2–4%</td><td>Medium — depends on trade policy duration</td></tr>
+              <tr><td>Geographic expansion (new distributors)</td><td>+1–2%</td><td>Moderate — white space in Southeast &amp; Midwest</td></tr>
+            </tbody>
+          </table>
+          <div class="dd-section-head">Dividend Sustainability Check</div>
+          <p class="dd-body">The 7% dividend ($1.70/share annually) is well-covered by free cash flow. FCF payout ratio is approximately 55–60%, leaving significant retained cash for growth capex and debt reduction. The dividend has been maintained since the 2021 IPO through a challenging macro environment — management has demonstrated commitment to the payout. This is not a yield trap; it's a real, sustainable yield on a growing business.</p>
+        </div>
+
+        <div class="dd-panel" id="krt-bullbear">
+          <div class="dd-section-head">Bull Case — Why This Works</div>
+          <div class="bull-point"><p>Tariff environment stays elevated or worsens for Asian-sourced packaging imports. Every incremental tariff increase is a direct competitive advantage for Karat's domestic manufacturing. In a sustained high-tariff environment, KRT re-prices toward $38–42 as competitors lose margin.</p></div>
+          <div class="bull-point"><p>A larger packaging company — Berry Global, Sealed Air, or a PE-backed consolidator — acquires KRT at 12–14x EV/EBITDA (peer multiples). At 13x, that's ~$40/share. The small float and domestic moat make KRT an obvious strategic target.</p></div>
+          <div class="bull-point"><p>Analyst coverage expands. Even one additional sell-side initiating coverage at a Buy rating could be a meaningful catalyst for a name with this low awareness. The story is simple and compelling.</p></div>
+          <div class="bull-point"><p>Karat Earth regulatory catalyst: California, New York, Illinois, and Massachusetts all have active or pending single-use plastics legislation. As bans on conventional plastics take effect, Karat Earth volumes accelerate, and the segment commands premium pricing.</p></div>
+          <div class="dd-section-head" style="margin-top:24px">Bear Case — Why This Fails</div>
+          <div class="bull-point bear-point"><p>Tariffs reversed or reduced sharply. If U.S.-China trade tensions ease dramatically, Asian-sourced packaging cost advantages return. KRT loses the tariff moat and re-rates to 8x EV/EBITDA (~$20/share). This is the primary macro risk.</p></div>
+          <div class="bull-point bear-point"><p>Restaurant/foodservice volume softness. In a recession, restaurant traffic declines, food delivery volumes soften, and KRT's volumes fall. Revenue growth goes negative; the dividend yield looks less safe at sub-5% FCF.</p></div>
+          <div class="bull-point bear-point"><p>Founder-controlled governance. The Lollicup family retains voting control. Capital allocation decisions may not always align with minority shareholders. No buyback authorization currently active.</p></div>
+        </div>
+
+        <div class="dd-panel" id="krt-catalysts">
+          <div class="dd-section-head">Upcoming Catalysts</div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Q1 2026 Earnings</div>
+            <div class="catalyst-text"><strong>Tariff Impact Quantification</strong>Management will likely provide specific commentary on tariff tailwinds for the first time with Q1 data. Explicit revenue attribution to domestic manufacturing advantage would be a re-rating catalyst.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Mid-2026</div>
+            <div class="catalyst-text"><strong>Karat Earth Volume Disclosure</strong>Any segment-level disclosure of Karat Earth revenue growth would quantify the eco-premium opportunity. Market is currently unable to value this segment separately.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Ongoing</div>
+            <div class="catalyst-text"><strong>Analyst Coverage Initiation</strong>At $490M market cap, KRT is just crossing the threshold where mid-cap focused desks will consider coverage. Any initiation with a Buy rating would drive institutional awareness.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Any Time</div>
+            <div class="catalyst-text"><strong>M&amp;A / Strategic Review</strong>With the family holding controlling shares, an unsolicited offer at premium would require a strategic review. At current prices, the acquisition math for a larger packaging company is highly compelling.</div>
+          </div>
+          <div class="dd-section-head">Management Team</div>
+          <div class="mgmt-row">
+            <div class="mgmt-initial">AC</div>
+            <div><div class="mgmt-title">CEO &amp; Co-Founder</div><div class="mgmt-name">Alan Yu</div><div class="mgmt-note">Founded Lollicup USA (parent) in 2000. Has grown the business from a regional distributor to a national manufacturer. Deep operational expertise; runs a lean organization. Family retains voting control — not always aligned with public shareholders on buybacks.</div></div>
+          </div>
+          <div class="mgmt-row">
+            <div class="mgmt-initial">TS</div>
+            <div><div class="mgmt-title">CFO</div><div class="mgmt-name">Jian Guo</div><div class="mgmt-note">Has managed the balance sheet conservatively since IPO. Dividend has been maintained through macro volatility. FCF discipline is evident; capex is purposeful and returns-focused.</div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -916,6 +1317,101 @@ footer {
         <div class="metric-cell"><div class="metric-label">FY26 Rev Guide</div><div class="metric-value">$1.45–1.55B</div></div>
         <div class="metric-cell"><div class="metric-label">Liquidity</div><div class="metric-value">$450M+</div></div>
         <div class="metric-cell"><div class="metric-label">Max Upside</div><div class="metric-value">+163%</div></div>
+      </div>
+
+      <!-- DIG DEEPER: CLW -->
+      <button class="dig-deeper-btn" onclick="toggleDig('clw-deep', this)">
+        <span class="arrow">▼</span> Dig Deeper — Full Analysis
+      </button>
+      <div class="dig-deeper-content" id="clw-deep">
+        <div class="dd-nav">
+          <button class="dd-tab active" onclick="showDDTab('clw','overview',this)">Business Overview</button>
+          <button class="dd-tab" onclick="showDDTab('clw','financials',this)">Financials</button>
+          <button class="dd-tab" onclick="showDDTab('clw','bullbear',this)">Bull vs. Bear</button>
+          <button class="dd-tab" onclick="showDDTab('clw','catalysts',this)">Catalysts &amp; Mgmt</button>
+        </div>
+
+        <div class="dd-panel active" id="clw-overview">
+          <div class="dd-section-head">What Clearwater Paper Actually Does</div>
+          <p class="dd-body">Clearwater Paper is a manufacturer of SBS (solid bleached sulfate) paperboard — the premium, high-brightness coated paperboard used for folding cartons, liquid packaging, cups, plates, and food-contact packaging. Following the sale of its consumer tissue business (completed 2024) and the acquisition of the Augusta, Georgia mill from Pixelle, Clearwater is now a pure-play SBS paperboard company with two mills: Spokane, WA and Augusta, GA.</p>
+          <p class="dd-body">SBS is a commodity with strong quality differentiation. It's used for Starbucks cups, pharmaceutical packaging, premium food cartons, and single-serving beverage containers. The market is dominated by a handful of integrated manufacturers. CLW, at $285M market cap, is the smallest public pure-play in the space — and currently the most beaten-down.</p>
+          <div class="dd-section-head">Understanding the SBS Paperboard Cycle</div>
+          <p class="dd-body">SBS paperboard is a cyclical commodity. Pricing follows capacity utilization. When utilization is high (&gt;94%), producers have pricing power and margins expand. When capacity overhang exists — driven by new mill builds or imports — pricing weakens and margins compress. The current trough (2024–2025) was driven by post-COVID demand normalization, excess European imports benefiting from a strong dollar, and the capacity addition from Pixelle's Augusta mill (which CLW then acquired, removing it from the competitive supply picture).</p>
+          <p class="dd-body">RISI (the industry's primary data provider) is forecasting 350,000 tons of net capacity reduction in H1 2026 — roughly 8–10% of the addressable market. European imports are declining. Demand from the beverage and food-contact segments is recovering. This is the setup for a classic cyclical recovery. CLW is positioned with two mills, $450M+ liquidity, and FY26 guidance that implies the bottom has been seen.</p>
+          <div class="dd-section-head">Why The Discount Exists</div>
+          <div class="dd-grid">
+            <div class="dd-cell"><div class="dd-cell-label">Reason for Discount</div><div class="dd-cell-value">Post-Transformation</div><div class="dd-cell-sub">Sold tissue biz; market unsure of new identity</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Reason for Discount</div><div class="dd-cell-value">Elevated Leverage</div><div class="dd-cell-sub">Augusta acquisition debt; FCF directed to paydown</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Reason for Discount</div><div class="dd-cell-value">Cyclical Trough</div><div class="dd-cell-sub">Market pricing permanent impairment, not cycle</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Counter-Argument</div><div class="dd-cell-value" style="color:var(--accent)">All Three Are Temporary</div><div class="dd-cell-sub">Identity clears, debt falls, cycle turns — typical 18-24 mo. setup</div></div>
+          </div>
+        </div>
+
+        <div class="dd-panel" id="clw-financials">
+          <div class="dd-section-head">Income Statement Snapshot (FY2026 Guidance)</div>
+          <div class="dd-grid">
+            <div class="dd-cell"><div class="dd-cell-label">FY26 Revenue Guide</div><div class="dd-cell-value">$1.45–1.55B</div><div class="dd-cell-sub">First full year of Augusta</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Adj. EBITDA (Est.)</div><div class="dd-cell-value">~$130–150M</div><div class="dd-cell-sub">Trough EBITDA</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">EV / EBITDA</div><div class="dd-cell-value">~6.9x</div><div class="dd-cell-sub">vs. peers at 8–10x at trough</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Liquidity</div><div class="dd-cell-value">$450M+</div><div class="dd-cell-sub">Revolver + cash; no near-term maturity</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Market Cap</div><div class="dd-cell-value">~$285M</div><div class="dd-cell-sub">At $17.50/share</div></div>
+            <div class="dd-cell"><div class="dd-cell-label">Net Debt</div><div class="dd-cell-value">~$850M</div><div class="dd-cell-sub">~5.5x leverage — declining</div></div>
+          </div>
+          <div class="dd-section-head">SBS Pricing Cycle — Historical Comp</div>
+          <table class="dd-table">
+            <thead><tr><th>Period</th><th>SBS Price / Ton</th><th>CLW EBITDA Margin</th><th>CLW Stock</th></tr></thead>
+            <tbody>
+              <tr><td>2017–2018 Peak</td><td>$1,050–1,100</td><td>~18–20%</td><td>~$55–65</td></tr>
+              <tr><td>2019–2020 Trough</td><td>$890–920</td><td>~12–14%</td><td>~$30–40</td></tr>
+              <tr><td>2021–2022 Peak</td><td>$1,200–1,350</td><td>~22%</td><td>~$55–75</td></tr>
+              <tr><td>2024–2025 Trough (now)</td><td>~$880–920</td><td>~9–11%</td><td style="color:var(--red)">~$17–22</td></tr>
+              <tr><td>2026–2027 Recovery (est.)</td><td>$1,000–1,100</td><td>~15–18%</td><td style="color:var(--accent)">$30–46 (our target)</td></tr>
+            </tbody>
+          </table>
+          <p class="dd-body" style="color:var(--muted); font-size:12px; font-style:italic;">Note: CLW today is not the same company as prior cycles — Augusta acquisition materially changes the size and cost structure. But the pricing cycle dynamic is the same.</p>
+        </div>
+
+        <div class="dd-panel" id="clw-bullbear">
+          <div class="dd-section-head">Bull Case — Why This Works</div>
+          <div class="bull-point"><p>SBS pricing recovers to $1,000–1,050/ton by end of 2026 on capacity rationalization and demand recovery. At mid-cycle margins (16%), CLW generates $240–260M EBITDA. At 8x EV/EBITDA (discount to peers), that's $40–46/share. This is the bull case and it's a normal cycle, not an exceptional one.</p></div>
+          <div class="bull-point"><p>Leverage pays down rapidly at any price recovery. At $1,000/ton SBS, CLW generates $150–180M FCF. Debt falls from 5.5x to ~3x within 24 months, de-risking the equity dramatically and potentially enabling a dividend reinstatement.</p></div>
+          <div class="bull-point"><p>Augusta mill synergies. Management guided $30–40M in annual synergies from the Augusta acquisition by FY2027. This is incremental to any pricing recovery and has not been given credit in current valuations.</p></div>
+          <div class="bull-point"><p>Strategic value / takeout. At $285M market cap with two operational SBS mills and $1.5B in revenue, CLW is a cheap asset for a larger paper company. Clearwater has been rumored as a strategic target multiple times. At trough, the acquisition math is compelling for a strategic buyer.</p></div>
+          <div class="dd-section-head" style="margin-top:24px">Bear Case — Why This Fails</div>
+          <div class="bull-point bear-point"><p>This is not a cycle — it's structural. If e-commerce permanently shifts foodservice to lightweight flexible packaging and away from SBS folding cartons, the demand recovery doesn't come. This is a low-probability but high-conviction bear argument among some sell-side analysts.</p></div>
+          <div class="bull-point bear-point"><p>Leverage kills the equity. At 5.5x leverage with $850M net debt, any extended trough scenario (SBS pricing stays at $880–900 for 3+ years) means FCF is consumed by interest. Equity dilution risk is non-trivial if a debt covenant is pressured. This is why this is a Speculative Buy, not a Buy.</p></div>
+          <div class="bull-point bear-point"><p>Integration execution. Augusta is a large, complex acquisition for a $285M market cap company. Any operational disruption — equipment failure, labor issues, environmental violation — could be disproportionately damaging.</p></div>
+          <div class="bull-point bear-point"><p>New capacity additions. If a major global paper company announces a new SBS greenfield mill, pricing recovery gets pushed out 3–4 years. This is how cycles get extended. Monitor industry capacity announcements closely.</p></div>
+        </div>
+
+        <div class="dd-panel" id="clw-catalysts">
+          <div class="dd-section-head">Upcoming Catalysts</div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Feb 18, 2026</div>
+            <div class="catalyst-text"><strong>Q4 2025 Earnings — Tonight</strong>This is the immediate catalyst. Key items to watch: (1) FY2026 revenue and EBITDA guidance, (2) SBS pricing commentary and whether pricing is stabilizing, (3) Augusta integration update and any synergy pull-forward, (4) liquidity update and debt paydown pace. A guidance beat or any language suggesting pricing trough is behind them could move the stock 15–25% immediately.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Q1–Q2 2026</div>
+            <div class="catalyst-text"><strong>RISI Capacity Reduction Data</strong>The 350K ton capacity reduction forecast materializes (or doesn't) in H1 2026 data. If confirmed, this removes the primary overhang on SBS pricing and accelerates the recovery narrative.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Q2 2026</div>
+            <div class="catalyst-text"><strong>First Leverage Reduction Milestone</strong>If net debt falls to ~4x or below in the first two quarters of FY2026, it demonstrates the equity de-risking path and could attract value-oriented institutional investors who are currently sidelined by the leverage level.</div>
+          </div>
+          <div class="catalyst-item">
+            <div class="catalyst-date">Any Time</div>
+            <div class="catalyst-text"><strong>Strategic Interest / M&amp;A</strong>Any indication of strategic interest from a buyer would likely result in a 40–60% premium to current levels. Given the asset value and trough pricing, this is the highest-probability scenario for a rapid re-rating.</div>
+          </div>
+          <div class="dd-section-head">Management Team</div>
+          <div class="mgmt-row">
+            <div class="mgmt-initial">SC</div>
+            <div><div class="mgmt-title">President &amp; CEO</div><div class="mgmt-name">Arsen Kitch</div><div class="mgmt-note">Has led the transformation from a consumer tissue + paperboard company to a pure-play SBS platform. Executed the tissue business sale and Augusta acquisition simultaneously — operationally complex. Credibility depends heavily on Augusta integration execution and FY2026 delivery.</div></div>
+          </div>
+          <div class="mgmt-row">
+            <div class="mgmt-initial">SR</div>
+            <div><div class="mgmt-title">CFO</div><div class="mgmt-name">Sherri Lemmons</div><div class="mgmt-note">Focused on the leverage reduction roadmap. Has been transparent about the capital structure risk and the FCF allocation priority (debt paydown first, capex second, equity return last). Conservative and credible communicator — important for an overleveraged cyclical.</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1126,6 +1622,26 @@ footer {
     document.querySelectorAll('.stock-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.stk-tab').forEach(b => b.classList.remove('active'));
     document.getElementById('stock-' + idx).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleDig(id, btn) {
+    const content = document.getElementById(id);
+    const isOpen = content.classList.contains('open');
+    content.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.querySelector('.arrow').textContent = isOpen ? '▼' : '▲';
+  }
+
+  function showDDTab(stock, panel, btn) {
+    // hide all panels for this stock
+    document.querySelectorAll('[id^="' + stock + '-"]').forEach(p => {
+      if (p.classList.contains('dd-panel')) p.classList.remove('active');
+    });
+    // deactivate all dd-tabs within the same dd-nav
+    btn.closest('.dd-nav').querySelectorAll('.dd-tab').forEach(t => t.classList.remove('active'));
+    // activate target
+    document.getElementById(stock + '-' + panel).classList.add('active');
     btn.classList.add('active');
   }
 
